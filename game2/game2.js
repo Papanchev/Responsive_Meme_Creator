@@ -213,24 +213,44 @@ function getTouchPos(canvasDom, touchEvent) {
 
 
 document.body.addEventListener("touchstart", function (e) {
-    if (e.target.tagName == 'canvas') {
-        e.preventDefault();
-    }
-}, false);
-
-document.body.addEventListener("touchend", function (e) {
-    if (e.target.tagName == 'canvas') {
-        e.preventDefault();
-    }
-}, false);
-
-document.body.addEventListener("touchmove", function (e) {
-    if (e.target.tagName == 'canvas') {
+    if (e.target.tagName == 'CANVAS') {
         try {
             e.preventDefault();
         } catch(error) {
+            addElement();
             e.stopPropagation();
         }
     }
 }, false);
+
+document.body.addEventListener("touchend", function (e) {
+    if (e.target.tagName == 'CANVAS') {
+        try {
+            e.preventDefault();
+        } catch(error) {
+            addElement();
+            e.stopPropagation();
+        }
+    }
+    
+}, false);
+
+document.body.addEventListener("touchmove", function (e) {
+    if (e.target.tagName == 'CANVAS') {
+        try {
+            e.preventDefault();
+        } catch(error) {
+            addElement();
+            e.stopPropagation();
+        }
+    }
+}, false);
+
+function addElement() {
+    var testDiv = document.getElementById('test');
+
+    var node = document.createTextNode("ASDDDDDDDDDDSADadsadasdsasdasds: ");
+    //   var textDiv = document.getElementById('text_div');
+    testDiv.appendChild(node);
+}
 
