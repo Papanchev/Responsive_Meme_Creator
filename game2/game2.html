@@ -1,0 +1,51 @@
+<!doctype html>
+<html> 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Game 2
+        </title>
+        <link id="css" rel="stylesheet" type="text/css" href="game2.css">
+        <script src="game2.js" async=""></script>
+    </head>
+    <body onload="pageLoad()">
+        <header>
+            <h1>Game 2</h1>
+        </header>
+        <main>
+            <h3>In this game a text is chosen at random from our database.</h3>
+            <h3>Your task is to draw something that relates to this text. Be creative!</h3>
+            
+            <button id="btn">Generate Text</button>
+        </main>
+
+        <div id="text_div">
+
+        </div>
+
+        <div id="div_canvas">
+            <button id="clear_btn">Clear the canvas</button>
+            <div id="tools_div">
+                <button id="marker_btn">Marker</button>
+                <button id="eraser_btn">Eraser</button>
+            </div>
+            <div id="colors_div">
+                Colors:
+                <button id="red_btn">Red</button>
+                <button id="blue_btn">Blue</button>
+                <button id="green_btn">Green</button>
+                <button id="yellow_btn">Yellow</button>
+                <button id="purple_btn">Purple</button>
+            </div>
+            <div id="size_div">
+                Sizes:
+                <button id="small_btn">Small</button>
+                <button id="medium_btn">Medium</button>
+                <button id="large_btn">Large</button>
+                <button id="huge_btn">Huge</button>
+            </div>
+            <canvas id="myCanvas" width="490" height="220"></canvas>
+        </div>
+        <button id="save_btn">Save drawing</button>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html> 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Game 1
+        </title>
+        <link id="css" rel="stylesheet" type="text/css" href="game1.css">
+        <script src="game1.js" async=""></script>
+    </head>
+    <body onload="pageLoad()">
+        <header>
+            <h1>Game 1</h1>
+        </header>
+        <main>
+            <h3>In this game a famous image is chosen at random from out database.</h3>
+            <h3>Your task is to add text to this image. Be creative!</h3>
+            
+            <button id="btn">Generate image</button>
+
+            <div id="div_img">
+                
+            </div>
+            <form id= "form_id" name="myForm">
+                Upper Text: <input type="text" name="upText">
+                Lower Text: <input type="text" name="lowText">
+            </form>
+            <button id="inputButton">Submit Text</button>
+        </main>
+        <div id="div_canvas">
+            <canvas id="canvas"></canvas>
+        </div>
+    </body>
+</html>
