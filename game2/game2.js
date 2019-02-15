@@ -12,11 +12,13 @@ var strings = [
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
 
+// drawing variables
 var xsArr = new Array();
 var ysArr = new Array();
 var dragArr = new Array();
 var isDrawing;
 
+// color variables
 var redColor = "#FF0000";
 var blueColor = "#0000FF";
 var greenColor = "#008000";
@@ -26,6 +28,7 @@ var purpleColor = "#800080"; // 	#663399
 var currentColor = redColor;
 var colorsArr = new Array();
 
+// size of drawing  lines
 var smallSize = 2.5;
 var mediumSize = 5;
 var largeSize = 8;
@@ -34,43 +37,38 @@ var hugeSize = 11;
 var currentSize = mediumSize;
 var sizesArr = new Array();
 
+// marker or eraser tool
 var currentTool = "marker";
 
-////
 
+// preventing scrolling and page reloading when drawin with touch events
 document.body.addEventListener("touchstart", function (e) {
     if (e.target.tagName == 'CANVAS') {
         e.preventDefault();
-        addElement();
     }
 }, false);
 
 document.body.addEventListener("touchend", function (e) {
     if (e.target.tagName == 'CANVAS') {
         e.preventDefault();
-        addElement();
     }
 }, false);
 
 document.body.addEventListener("touchmove", function (e) {
     if (e.target.tagName == 'CANVAS') {
         e.preventDefault();
-        addElement();
     }
 }, false);
 
 
 
-/////
 
 
 
 
 
 
-
-
-
+// generating a text for the user
 document.getElementById('btn').onclick = function () {
 
     var textDiv = document.getElementById('text_div');
@@ -92,6 +90,9 @@ document.getElementById('btn').onclick = function () {
     document.getElementById("save_btn").style.visibility = "visible";
 }
 
+
+
+//handle drawing events
 canvas.onmousedown = function (e) {
     var mouseX = e.pageX - this.offsetLeft;
     var mouseY = e.pageY - this.offsetTop;
@@ -117,7 +118,7 @@ canvas.onmouseleave = function (e) {
 }
 
 
-
+// handle all arrays
 function addClick(x, y, dragging) {
     xsArr.push(x);
     ysArr.push(y);
@@ -130,7 +131,7 @@ function addClick(x, y, dragging) {
     sizesArr.push(currentSize);
 }
 
-
+// redraws the entire canvas
 function redraw() {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
 
@@ -154,6 +155,8 @@ function redraw() {
 
 }
 
+
+// handle buttons for changing colors, sizes, tools and clear canvas
 document.getElementById('red_btn').onclick = function () {
     currentColor = redColor;
 }
@@ -208,8 +211,11 @@ document.getElementById('eraser_btn').onclick = function () {
 }
 
 
+
+
+// use touch events on canvas to fire mouse events.
+// making the site mobile-friendly
 canvas.addEventListener("touchstart", function (e) {
-//    mousePos = getTouchPos(canvas, e);
     e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousedown", {
@@ -241,25 +247,5 @@ document.body.addEventListener("touchcancel", function (e) {
     canvas.dispatchEvent(mouseEvent);
 }, false);
 
-// Get the position of a touch relative to the canvas
-function getTouchPos(canvasDom, touchEvent) {
-    var rect = canvasDom.getBoundingClientRect();
-    return {
-        x: touchEvent.touches[0].clientX - rect.left,
-        y: touchEvent.touches[0].clientY - rect.top
-    };
-}
 
-
-
-
-
-
-function addElement() {
-    var testDiv = document.getElementById('test');
-
-    var node = document.createTextNode("ASDDDDDDDDDDSADadsadasdsasdasds: ");
-    //   var textDiv = document.getElementById('text_div');
-    testDiv.appendChild(node);
-}
-
+//
