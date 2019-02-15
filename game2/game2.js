@@ -36,6 +36,41 @@ var sizesArr = new Array();
 
 var currentTool = "marker";
 
+////
+
+document.body.addEventListener("touchstart", function (e) {
+    if (e.target.tagName == 'CANVAS') {
+        e.preventDefault();
+        addElement();
+    }
+}, false);
+
+document.body.addEventListener("touchend", function (e) {
+    if (e.target.tagName == 'CANVAS') {
+        e.preventDefault();
+        addElement();
+    }
+}, false);
+
+document.body.addEventListener("touchmove", function (e) {
+    if (e.target.tagName == 'CANVAS') {
+        e.preventDefault();
+        addElement();
+    }
+}, false);
+
+
+
+/////
+
+
+
+
+
+
+
+
+
 document.getElementById('btn').onclick = function () {
 
     var textDiv = document.getElementById('text_div');
@@ -212,29 +247,7 @@ function getTouchPos(canvasDom, touchEvent) {
 }
 
 
-document.body.addEventListener("touchstart", function (e) {
-    if (e.target.tagName == 'CANVAS') {
-        e.preventDefault();
-        addElement();
-        return false;
-    }
-}, false);
 
-document.body.addEventListener("touchend", function (e) {
-    if (e.target.tagName == 'CANVAS') {
-        e.preventDefault();
-        addElement();
-        return false;
-    }
-}, false);
-
-document.body.addEventListener("touchmove", function (e) {
-    if (e.target.tagName == 'CANVAS') {
-        e.preventDefault();
-        addElement();
-        return false;
-    }
-}, false);
 
 
 
