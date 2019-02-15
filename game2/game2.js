@@ -216,10 +216,7 @@ document.body.addEventListener("touchstart", function (e) {
     if (e.target.tagName == 'CANVAS') {
         e.preventDefault();
         addElement();
-    } else if (e.target.tagName == 'canvas') {
-        addElement2();
-    } else if (e.target == canvas) {
-        addElement3();
+        return false;
     }
 }, false);
 
@@ -227,24 +224,16 @@ document.body.addEventListener("touchend", function (e) {
     if (e.target.tagName == 'CANVAS') {
         e.preventDefault();
         addElement();
-    } else if (e.target.tagName == 'canvas') {
-        addElement2();
-    } else if (e.target == canvas) {
-        addElement3();
+        return false;
     }
-    
 }, false);
 
 document.body.addEventListener("touchmove", function (e) {
     if (e.target.tagName == 'CANVAS') {
         e.preventDefault();
         addElement();
-    } else if (e.target.tagName == 'canvas') {
-        addElement2();
-    } else if (e.target == canvas) {
-        addElement3();
+        return false;
     }
-    
 }, false);
 
 
@@ -257,19 +246,3 @@ function addElement() {
     testDiv.appendChild(node);
 }
 
-
-function addElement2() {
-    var testDiv = document.getElementById('test');
-
-    var node = document.createTextNode("canvas");
-    //   var textDiv = document.getElementById('text_div');
-    testDiv.appendChild(node);
-}
-
-function addElement3() {
-    var testDiv = document.getElementById('test');
-
-    var node = document.createTextNode("without tagName");
-    //   var textDiv = document.getElementById('text_div');
-    testDiv.appendChild(node);
-}
