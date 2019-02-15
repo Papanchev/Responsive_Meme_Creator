@@ -214,37 +214,37 @@ function getTouchPos(canvasDom, touchEvent) {
 
 document.body.addEventListener("touchstart", function (e) {
     if (e.target.tagName == 'CANVAS') {
-        try {
-            e.preventDefault();
-        } catch(error) {
-            addElement();
-            e.stopPropagation();
-        }
+        addElement();
+    } else if (e.target.tagName == 'canvas') {
+        addElement2();
+    } else if (e.target == canvas) {
+        addElement3();
     }
 }, false);
 
 document.body.addEventListener("touchend", function (e) {
     if (e.target.tagName == 'CANVAS') {
-        try {
-            e.preventDefault();
-        } catch(error) {
-            addElement();
-            e.stopPropagation();
-        }
+        addElement();
+    } else if (e.target.tagName == 'canvas') {
+        addElement2();
+    } else if (e.target == canvas) {
+        addElement3();
     }
     
 }, false);
 
 document.body.addEventListener("touchmove", function (e) {
     if (e.target.tagName == 'CANVAS') {
-        try {
-            e.preventDefault();
-        } catch(error) {
-            addElement();
-            e.stopPropagation();
-        }
+        addElement();
+    } else if (e.target.tagName == 'canvas') {
+        addElement2();
+    } else if (e.target == canvas) {
+        addElement3();
     }
+    
 }, false);
+
+
 
 function addElement() {
     var testDiv = document.getElementById('test');
@@ -254,3 +254,26 @@ function addElement() {
     testDiv.appendChild(node);
 }
 
+function addElement() {
+    var testDiv = document.getElementById('test');
+
+    var node = document.createTextNode("ASDDDDDDDDDDSADadsadasdsasdasds: ");
+    //   var textDiv = document.getElementById('text_div');
+    testDiv.appendChild(node);
+}
+
+function addElement2() {
+    var testDiv = document.getElementById('test');
+
+    var node = document.createTextNode("canvas");
+    //   var textDiv = document.getElementById('text_div');
+    testDiv.appendChild(node);
+}
+
+function addElement3() {
+    var testDiv = document.getElementById('test');
+
+    var node = document.createTextNode("without tagName");
+    //   var textDiv = document.getElementById('text_div');
+    testDiv.appendChild(node);
+}
