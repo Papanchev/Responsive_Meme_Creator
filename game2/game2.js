@@ -226,7 +226,11 @@ document.body.addEventListener("touchend", function (e) {
 
 document.body.addEventListener("touchmove", function (e) {
     if (e.target.tagName == 'canvas') {
-        e.preventDefault();
+        try {
+            e.preventDefault();
+        } catch(error) {
+            e.stopPropagation();
+        }
     }
 }, false);
 
