@@ -210,6 +210,7 @@ document.getElementById('eraser_btn').onclick = function () {
 
 canvas.addEventListener("touchstart", function (e) {
 //    mousePos = getTouchPos(canvas, e);
+    e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
@@ -219,11 +220,13 @@ canvas.addEventListener("touchstart", function (e) {
 }, false);
 
 canvas.addEventListener("touchend", function (e) {
+    e.preventDefault();
     var mouseEvent = new MouseEvent("mouseup", {});
     canvas.dispatchEvent(mouseEvent);
 }, false);
 
 canvas.addEventListener("touchmove", function (e) {
+    e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousemove", {
         clientX: touch.clientX,
@@ -233,6 +236,7 @@ canvas.addEventListener("touchmove", function (e) {
 }, false);
 
 document.body.addEventListener("touchcancel", function (e) {
+    e.preventDefault();
     var mouseEvent = new MouseEvent("onmouseleave", {});
     canvas.dispatchEvent(mouseEvent);
 }, false);
