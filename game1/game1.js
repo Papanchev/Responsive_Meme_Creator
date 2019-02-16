@@ -75,7 +75,13 @@ document.getElementById('btn').onclick = function() {
     img.setAttribute("id", "img_id");
     var loc = window.location.pathname;
     var dir = loc.substring(0, loc.lastIndexOf('/'));
+    dir = dir.substring(0, dir.lastIndexOf('/'));
+
+    
     img.src = dir + images[index];
+
+
+    console.log(img.src);
 
     myDiv.appendChild(img);
     curImg = img;
