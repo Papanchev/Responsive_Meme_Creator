@@ -42,3 +42,15 @@ header {
     border-radius: 0.25em;
     text-align: center;
 }
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    width: 96%;
+    padding: 10px 18px;
+    margin: 8px 2% 8px 2%;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

@@ -19,25 +19,33 @@
             <h3>In this game a famous image is chosen at random from out database.</h3>
         </div>
 
-        <div id="h4_div">
-            <h4>Your task is to add text to this image. Be creative!</h4>
+        <div class="container">
+
+            <div id="h4_div">
+                <h4 id="h4_id">Your task is to add text to the generated image. Be creative!</h4>
+            </div>
+
+            <button id="gen_btn" class="button">Generate Image</button>
+
+            <div id="div_img">
+
+            </div>
+            <div id="input_div">
+                <form id="form_id" name="myForm">
+                    <label for="fname">Upper Caption:</label>
+                    <input type="text" name="upText" class="input">
+                    <label for="fname">Lower Caption</label>
+                    <input type="text" name="lowText">
+                </form>
+            </div>
+
+            <button id="inputButton" class="button">Submit Text</button>
         </div>
-
-        <button id="gen_btn" class="button">Generate image</button>
-
-        <div id="div_img">
-
-        </div>
-        <form id="form_id" name="myForm">
-            Upper Text: <input type="text" name="upText">
-            Lower Text: <input type="text" name="lowText">
-        </form>
-        <button id="inputButton" class="button">Submit Text</button>
     </main>
-    <div id="div_canvas">
+    <div id="div_canvas" class="container">
         <canvas id="canvas"></canvas>
     </div>
-    <div id="save_div">
+    <div id="save_div" class="container">
         <a href="#" class="button" id="save_btn" download="my-file-name.png">Download</a>
     </div>
 </body>
