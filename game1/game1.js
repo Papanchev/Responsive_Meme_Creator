@@ -61,12 +61,10 @@ document.getElementById('gen_btn').onclick = function() {
     var newSrc = '..' + images[index];
     img.src = newSrc;
 
-    console.log(img.height);
     img.height = 255;
     img.width = 255;
     
     myDiv.appendChild(img);
-    console.log(img.height);
 
     curImg = img;
     pictureLoaded = true;

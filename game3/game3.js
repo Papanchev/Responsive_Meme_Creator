@@ -86,13 +86,16 @@ function drawImageOnCanvas(file) {
     var image = document.createElement("IMG");
     image.src = URL.createObjectURL(file);
 
+    image.height = 255;
+    image.width = 255;
+
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext('2d');
 
     image.onload = function (e) {
         canvas.width = image.width;
         canvas.height = image.height;
-        context.drawImage(image, 0, 0);
+        context.drawImage(image, 0, 0, image.width, image.height);
     }
 }
 
