@@ -77,9 +77,9 @@ document.getElementById('btn').onclick = function() {
     var dir = loc.substring(0, loc.lastIndexOf('/'));
     dir = dir.substring(0, dir.lastIndexOf('/'));
 
-    
-    img.src = dir + images[index];
-
+    var newSrc = '..' + images[index];
+  //  img.src = dir + images[index];
+    img.src = newSrc;
 
     console.log(img.src);
 
