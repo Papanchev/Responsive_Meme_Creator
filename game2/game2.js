@@ -1,3 +1,7 @@
+
+
+//var FileSaver = require('file-saver');
+
 var strings = [
     "Women..",
     "Men..",
@@ -249,3 +253,20 @@ document.body.addEventListener("touchcancel", function (e) {
 
 
 //
+
+
+var button = document.getElementById('btn_download');
+button.addEventListener('click', function (e) {
+    var dataURL = canvas.toDataURL('image/png');
+    button.href = dataURL;
+    
+});
+
+/*
+    // learn how to import that  shit
+document.getElementById('save_btn').onclick = function () {
+    canvas.toBlob(function(blob) {
+        saveAs(blob, "new_image.png");
+    });
+}
+*/
