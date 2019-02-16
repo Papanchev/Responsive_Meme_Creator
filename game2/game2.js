@@ -91,7 +91,6 @@ document.getElementById('btn').onclick = function () {
 
     // draw text on canvas
 
-    document.getElementById("save_btn").style.visibility = "visible";
 }
 
 

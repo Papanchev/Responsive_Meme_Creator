@@ -1,11 +1,9 @@
-#save_btn {
-    visibility: hidden;
-}
+
 
 #myCanvas {
     border: 2px solid blue;
 }
 
 body {
-    background-color: lightblue;
+    background-color: lightcyan;
 }

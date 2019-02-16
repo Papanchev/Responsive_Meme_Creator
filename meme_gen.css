@@ -31,13 +31,16 @@ header {
 
 #links {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
 .link_div {
 
+    
+
     border: 1px solid;
-    width: 30%;
+    width: 90%;
     margin: 0.5em;
     border-radius: 0.25em;
     text-align: center;
