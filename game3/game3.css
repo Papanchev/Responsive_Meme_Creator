@@ -1,0 +1,14 @@
+#save_btn {
+    visibility: hidden;
+}
+
+
+#file_input {
+    padding: 10px;
+    visibility: hidden;
+}
+
+#target {
+    padding: 10px;
+    visibility: hidden;
+}
