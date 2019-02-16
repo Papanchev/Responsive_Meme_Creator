@@ -1,0 +1,44 @@
+body {
+    background-color: lightcyan;
+}
+
+h1 {
+    text-align: center;
+}
+
+header {
+    margin: 0.6em;
+    border: 1px solid;
+    border-radius: 0.25em;
+    background-color: lightblue;
+}
+
+#h3div {
+    margin: 0.6em;
+    border: 1px solid;
+    border-radius: 0.25em;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.container {
+    margin: 0.6em;
+    border: 1px solid;
+    border-radius: 0.25em;
+    background-color: lightblue;
+    text-align: center;
+}
+
+#links {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.link_div {
+
+    border: 1px solid;
+    width: 30%;
+    margin: 0.5em;
+    border-radius: 0.25em;
+    text-align: center;
+}

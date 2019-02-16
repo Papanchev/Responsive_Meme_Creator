@@ -4,3 +4,10 @@
     visibility: hidden;
 }
 */
+body {
+    background-color: lightblue;
+}
+
+#save_btn, #form_id , #inputButton {
+    visibility: hidden;
+}
