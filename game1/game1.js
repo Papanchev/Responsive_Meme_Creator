@@ -73,12 +73,7 @@ document.getElementById('btn').onclick = function() {
     var index = Math.floor(Math.random() * images.length); 
     var img = document.createElement('img');
     img.setAttribute("id", "img_id");
-    var loc = window.location.pathname;
-    var dir = loc.substring(0, loc.lastIndexOf('/'));
-    dir = dir.substring(0, dir.lastIndexOf('/'));
-
     var newSrc = '..' + images[index];
-  //  img.src = dir + images[index];
     img.src = newSrc;
 
     console.log(img.src);
