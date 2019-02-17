@@ -164,3 +164,11 @@ function drawImageOnCanvas(file) {
     } // end of if
 } // end of function drawImageOnCanvas
 
+
+var button = document.getElementById('btn_download');
+button.addEventListener('click', function (e) {
+    var canvas = document.getElementById('myCanvas');
+    canvas.crossOrigin = "anonymous";
+    var dataURL = canvas.toDataURL('image/png');
+    button.href = dataURL;
+});
