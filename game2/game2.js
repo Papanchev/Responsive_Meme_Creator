@@ -13,6 +13,11 @@ var strings = [
     "I can\'t think of anything..",
 ]
 
+var curText;
+var textPlaced = false;
+var textFont;
+
+
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
 
@@ -87,11 +92,38 @@ document.getElementById('btn').onclick = function () {
     textDiv.appendChild(node);
 
     var node2 = document.createTextNode(strings[index]);
+    curText = strings[index];
+
     textDiv.appendChild(node2);
+
+    var newButton = document.createElement("BUTTON");
+    newButton.setAttribute('id', 'placeTextButton');
+    newButton.setAttribute('class', 'button');
+    newButton.innerHTML = "Place Text on Canvas";
+
+    newButton.onclick = function() {
+        var len = curText.length;
+        if (len < 4) {
+            len = 4
+        }
+        var font = (canvas.width - 50 )/ len;
+        font = Math.ceil(font);
+    
+        context.font = font + "pt Verdana";
+        context.textAlign = "center";
+        context.fillText(curText,(canvas.width / 2),font + 10);
+        textPlaced = true;
+        textFont = font;
+
+        redraw();
+    }
+
+    textDiv.appendChild(newButton);
 
     // draw text on canvas
 
 }
+
 
 
 
@@ -137,6 +169,12 @@ function addClick(x, y, dragging) {
 // redraws the entire canvas
 function redraw() {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+
+    if (textPlaced) {
+        context.font = textFont + "pt Verdana";
+        context.textAlign = "center";
+        context.fillText(curText,(canvas.width / 2),textFont + 10);
+    }
 
     //   context.strokeStyle = "#df4b26";
     context.lineJoin = "round";

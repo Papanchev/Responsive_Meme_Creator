@@ -33,15 +33,22 @@ document.getElementById('inputButton').onclick = function() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.drawImage(img, 0, 0, img.width, img.height);
 
-    var font = (img.height + img.width ) * 0.05;
+  //  var font = (img.height + img.width ) * 0.05;
+    var len = (upperText.length > lowerText.length) ? upperText.length : lowerText.length;
+    if (len < 4) {
+        len = 4
+    }
+    var font = (img.width - 50 )/ len
     font = Math.ceil(font);
 
     ctx.font = font + "pt Verdana";
+    console.log(ctx.font);
     ctx.fillStyle = "red";
-    var dy = img.height * 0.1;
+   // var dy = img.height * 0.1;
 
-    ctx.fillText(upperText,40,dy + font);
-    ctx.fillText(lowerText,40,img.height - dy);
+    ctx.textAlign = "center";
+    ctx.fillText(upperText,(img.width / 2),font + 10);
+    ctx.fillText(lowerText,(img.width / 2),img.height - 15);
 
     document.getElementById('save_btn').style.visibility = "visible";
    // console.log(ctx.getImageData(50, 50, 100, 100));
