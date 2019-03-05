@@ -187,7 +187,7 @@ canvas.onmousemove = function (e) {
         var mouseX = e.pageX - offsetX;
         var mouseY = e.pageY - offsetY;
         addClick(mouseX, mouseY, true)
-     //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
         redraw();
     }
 }
@@ -306,8 +306,8 @@ document.getElementById('eraser_btn').onchange = function () {
 // making the site mobile-friendly
 canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
-    var touch = e.touches[0];
-    //   var touch = e.targetTouches[0];
+  //  var touch = e.touches[0];
+    var touch = e.targetTouches[0];
     /*
        var offsetY = 0;
        if (canvas.offsetParent !== undefined) {
@@ -316,9 +316,25 @@ canvas.addEventListener("touchstart", function (e) {
        var newY = touch.clientY - offsetY;
        */
     //  offsetY += _stylePaddingTop + _styleBorderTop + _htmlTop;
+
+    // new fix
+    var element = canvas;
+    var offsetX = 0;
+    var offsetY = 0;
+    if (element.offsetParent !== undefined) {
+        do {
+            offsetX += element.offsetLeft;
+            offsetY += element.offsetTop;
+        } while ((element = element.offsetParent));
+    }
+    var mouseX = touch.clientX - offsetX;
+    var mouseY = touch.clientY - offsetY;
+
+
+
     var mouseEvent = new MouseEvent("mousedown", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
+        clientX: mouseX,
+        clientY: mouseY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
@@ -331,18 +347,25 @@ canvas.addEventListener("touchend", function (e) {
 
 canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
-    var touch = e.touches[0];
-    //   var touch = e.targetTouches[0];
-    /*
-       var offsetY = 0;
-       if (canvas.offsetParent !== undefined) {
-           offsetY += canvas.offsetTop;
-       } 
-       var newY = touch.clientY - offsetY;
-       */
+  //  var touch = e.touches[0];
+    var touch = e.targetTouches[0];
+
+    // new fix
+    var element = canvas;
+    var offsetX = 0;
+    var offsetY = 0;
+    if (element.offsetParent !== undefined) {
+        do {
+            offsetX += element.offsetLeft;
+            offsetY += element.offsetTop;
+        } while ((element = element.offsetParent));
+    }
+    var mouseX = touch.clientX - offsetX;
+    var mouseY = touch.clientY - offsetY;    
+
     var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
+        clientX: mouseX,
+        clientY: mouseY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
