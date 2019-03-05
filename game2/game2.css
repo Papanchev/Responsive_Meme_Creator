@@ -2,8 +2,14 @@
 
 #myCanvas {
     border: 2px solid blue;
+    background-color: white;
 }
 
 body {
-    background-color: lightcyan;
+    
+    background-color: #edebda
+}
+
+#mainDiv {
+    display: none;
 }

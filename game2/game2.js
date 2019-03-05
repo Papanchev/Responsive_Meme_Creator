@@ -40,8 +40,8 @@ var colorsArr = new Array();
 // size of drawing  lines
 var smallSize = 2.5;
 var mediumSize = 5;
-var largeSize = 8;
-var hugeSize = 11;
+var largeSize = 10;
+var hugeSize = 15;
 
 var currentSize = mediumSize;
 var sizesArr = new Array();
@@ -96,9 +96,10 @@ document.getElementById('btn').onclick = function () {
 
     textDiv.appendChild(node2);
 
+    // Create the  placeTextButton
     var newButton = document.createElement("BUTTON");
     newButton.setAttribute('id', 'placeTextButton');
-    newButton.setAttribute('class', 'button');
+    newButton.setAttribute('class', 'btn btn-success mb-2 mt-4');
     newButton.innerHTML = "Place Text on Canvas";
 
     newButton.onclick = function() {
@@ -118,13 +119,17 @@ document.getElementById('btn').onclick = function () {
         redraw();
     }
 
-    textDiv.appendChild(newButton);
+    // placing the button into its div
+    var placeTextBtnDiv = document.getElementById('placeTextBtnDiv');
+    while (placeTextBtnDiv.firstChild) {
+        placeTextBtnDiv.removeChild(placeTextBtnDiv.firstChild);
+    }
+    placeTextBtnDiv.appendChild(newButton);
 
-    // draw text on canvas
+    // display mainDiv
+    document.getElementById("mainDiv").style.display = "block";
 
 }
-
-
 
 
 //handle drawing events
@@ -196,41 +201,41 @@ function redraw() {
 
 }
 
-
-// handle buttons for changing colors, sizes, tools and clear canvas
-document.getElementById('red_btn').onclick = function () {
+document.getElementById('red_btn').onchange = function () {
     currentColor = redColor;
+  //  $(this).addClass('active');
 }
 
-document.getElementById('blue_btn').onclick = function () {
+document.getElementById('blue_btn').onchange = function () {
     currentColor = blueColor;
 }
 
-document.getElementById('green_btn').onclick = function () {
+document.getElementById('green_btn').onchange = function () {
     currentColor = greenColor;
 }
 
-document.getElementById('yellow_btn').onclick = function () {
+document.getElementById('yellow_btn').onchange = function () {
     currentColor = yellowColor;
 }
 
-document.getElementById('purple_btn').onclick = function () {
+document.getElementById('purple_btn').onchange = function () {
     currentColor = purpleColor;
 }
 
-document.getElementById('small_btn').onclick = function () {
+
+document.getElementById('small_btn').onchange = function () {
     currentSize = smallSize;
 }
 
-document.getElementById('medium_btn').onclick = function () {
+document.getElementById('medium_btn').onchange = function () {
     currentSize = mediumSize;
 }
 
-document.getElementById('large_btn').onclick = function () {
+document.getElementById('large_btn').onchange = function () {
     currentSize = largeSize;
 }
 
-document.getElementById('huge_btn').onclick = function () {
+document.getElementById('huge_btn').onchange = function () {
     currentSize = hugeSize;
 }
 
@@ -243,11 +248,11 @@ document.getElementById('clear_btn').onclick = function () {
     sizesArr = new Array();
 }
 
-document.getElementById('marker_btn').onclick = function () {
+document.getElementById('marker_btn').onchange = function () {
     currentTool = "marker";
 }
 
-document.getElementById('eraser_btn').onclick = function () {
+document.getElementById('eraser_btn').onchange = function () {
     currentTool = "eraser";
 }
 
