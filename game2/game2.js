@@ -269,16 +269,17 @@ document.getElementById('eraser_btn').onchange = function () {
 // making the site mobile-friendly
 canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
- //   var touch = e.touches[0];
-    var touch = e.targetTouches[0];
+    var touch = e.touches[0];
+ //   var touch = e.targetTouches[0];
     var offsetY = 0;
     if (canvas.offsetParent !== undefined) {
         offsetY += canvas.offsetTop;
     } 
+    var newY = touch.clientY - offsetY;
   //  offsetY += _stylePaddingTop + _styleBorderTop + _htmlTop;
     var mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
-        clientY: touch.clientY - offsetY
+        clientY: newY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
@@ -291,15 +292,16 @@ canvas.addEventListener("touchend", function (e) {
 
 canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
- //   var touch = e.touches[0];
-    var touch = e.targetTouches[0];
+    var touch = e.touches[0];
+ //   var touch = e.targetTouches[0];
     var offsetY = 0;
     if (canvas.offsetParent !== undefined) {
         offsetY += canvas.offsetTop;
     } 
+    var newY = touch.clientY - offsetY;
     var mouseEvent = new MouseEvent("mousemove", {
         clientX: touch.clientX,
-        clientY: touch.clientY - offsetY
+        clientY: newY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
