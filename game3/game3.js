@@ -49,9 +49,6 @@ document.getElementById('btn').onclick = function () {
 const fileInput = document.getElementById('file_input');
 fileInput.addEventListener('change', (e) => createURLObject(e.target.files));
 
-const fileInput2 = document.getElementById('file_input2');
-fileInput2.addEventListener('change', (e) => createURLObject(e.target.files));
-
 // get the target for DnD
 const target = document.getElementById('target');
 // listener for drop
