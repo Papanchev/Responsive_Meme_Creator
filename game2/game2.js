@@ -271,9 +271,14 @@ canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
  //   var touch = e.touches[0];
     var touch = e.targetTouches[0];
+    var offsetY = 0;
+    if (canvas.offsetParent !== undefined) {
+        offsetY += canvas.offsetTop;
+    } 
+  //  offsetY += _stylePaddingTop + _styleBorderTop + _htmlTop;
     var mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
-        clientY: touch.clientY
+        clientY: touch.clientY - offsetY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
@@ -288,9 +293,13 @@ canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
  //   var touch = e.touches[0];
     var touch = e.targetTouches[0];
+    var offsetY = 0;
+    if (canvas.offsetParent !== undefined) {
+        offsetY += canvas.offsetTop;
+    } 
     var mouseEvent = new MouseEvent("mousemove", {
         clientX: touch.clientX,
-        clientY: touch.clientY
+        clientY: touch.clientY - offsetY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
