@@ -287,8 +287,8 @@ canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.layerX,
-        clientY: touch.layerY
+        clientX: touch.clientX,
+        clientY: touch.clientY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
