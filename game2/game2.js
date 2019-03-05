@@ -306,8 +306,8 @@ document.getElementById('eraser_btn').onchange = function () {
 // making the site mobile-friendly
 canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
-  //  var touch = e.touches[0];
-    var touch = e.targetTouches[0];
+    var touch = e.touches[0];
+  //  var touch = e.targetTouches[0];
     /*
        var offsetY = 0;
        if (canvas.offsetParent !== undefined) {
@@ -347,8 +347,8 @@ canvas.addEventListener("touchend", function (e) {
 
 canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
-  //  var touch = e.touches[0];
-    var touch = e.targetTouches[0];
+    var touch = e.touches[0];
+  //  var touch = e.targetTouches[0];
 
     // new fix
     var element = canvas;
