@@ -47,13 +47,22 @@
 
             <div class="container pl-4 pl-5">
                 <div class="input-group">
-
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" accept="image/*" capture id="file_input"
+                        <input type="file" class="custom-file-input" accept="image/*" capture="camera" id="file_input"
                             aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="file_input">Choose file</label>
-                    </div>
+                        <label class="custom-file-label" for="file_input">Take new Photo</label>
 
+                    </div>
+                </div>
+            </div>
+            <div class="container pl-4 pl-5 mt-1">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" accept="image/*" id="file_input2"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="file_input2">Upload existing Photo</label>
+
+                    </div>
                 </div>
             </div>
 
@@ -73,11 +82,11 @@
         <div id="div_canvas" class="text-center">
             <canvas id="myCanvas"></canvas>
         </div>
-        
+
         <div id="savebtn_div" class="container text-center">
-                <a href="#" class="btn btn-success mb-1" id="btn_download" download="my-file3-name.png">Download</a>
+            <a href="#" class="btn btn-success mb-1" id="btn_download" download="my-file3-name.png">Download</a>
         </div>
-        
+
 
     </main>
 
