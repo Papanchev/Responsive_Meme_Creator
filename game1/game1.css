@@ -4,6 +4,8 @@
     visibility: hidden;
 }
 */
+
+/*
 body {
     background-color: lightcyan;
 }
@@ -70,4 +72,17 @@ input[type=text] {
 
 #save_btn, #form_id , #inputButton {
     visibility: hidden;
+}
+*/
+body {
+    
+    background-color: #edebda
+}
+
+#input_div {
+    display: none;
+}
+
+#save_div {
+    display: none;
 }

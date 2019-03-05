@@ -50,7 +50,7 @@ document.getElementById('inputButton').onclick = function() {
     ctx.fillText(upperText,(img.width / 2),font + 10);
     ctx.fillText(lowerText,(img.width / 2),img.height - 15);
 
-    document.getElementById('save_btn').style.visibility = "visible";
+    document.getElementById('save_div').style.display = "block";
    // console.log(ctx.getImageData(50, 50, 100, 100));
 }
 
@@ -75,8 +75,9 @@ document.getElementById('gen_btn').onclick = function() {
 
     curImg = img;
     pictureLoaded = true;
-    document.getElementById('form_id').style.visibility = "visible";
-    document.getElementById('inputButton').style.visibility = "visible";
+    document.getElementById("input_div").style.display = "block";
+  //  document.getElementById('form_id').style.visibility = "visible";
+  //  document.getElementById('inputButton').style.visibility = "visible";
 }
 
 var button = document.getElementById('save_btn');

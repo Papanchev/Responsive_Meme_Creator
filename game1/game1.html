@@ -2,52 +2,93 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8">
     <title>
         Write a Caption Game
     </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link id="css" rel="stylesheet" type="text/css" href="game1.css">
     <script src="game1.js" async=""></script>
 </head>
 
 <body>
     <header>
-        <h1>Write a Caption Game</h1>
+        <div class="container pt-2 pb-2">
+            <h1 class="text-center">Write a Caption</h1>
+        </div>
     </header>
     <main>
-        <div id="h3_div">
-            <h3>In this game a famous image is chosen at random from out database.</h3>
+        <div id="h3_div" class="container mt-3 mb-3">
+            <h3 class="text-center">In this game a famous image is chosen at random from out database.</h3>
+        </div>
+
+        <div class="container mt-2 mb-3">
+            <h4 class="text-center">Your task is to add text to the generated image. Be creative!</h4>
         </div>
 
         <div class="container">
 
-            <div id="h4_div">
-                <h4 id="h4_id">Your task is to add text to the generated image. Be creative!</h4>
+            <div class="container text-center mt-3 mb-3">
+                <button id="gen_btn" class="btn btn-success mb-2">Generate Image</button>
             </div>
 
-            <button id="gen_btn" class="button">Generate Image</button>
 
-            <div id="div_img">
+            <div id="div_img" class="container text-center mb-3">
 
             </div>
-            <div id="input_div">
+
+
+            <div id="input_div" class="container text-center">
+
                 <form id="form_id" name="myForm">
-                    <label for="fname">Upper Caption:</label>
-                    <input type="text" name="upText" class="input">
-                    <label for="fname">Lower Caption</label>
-                    <input type="text" name="lowText">
+                    <div class="row">
+
+                        <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0">
+                        </div>
+
+                        <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fname">Upper Caption:</label>
+                            <input type="text" name="upText" class="input">
+                        </div>
+
+                        <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fname">Lower Caption</label>
+                            <input type="text" name="lowText">
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0">
+                        </div>
+                        
+                    </div>
+
                 </form>
+
+                <button id="inputButton" class="btn btn-success mb-2">Submit Text</button>
+
             </div>
 
-            <button id="inputButton" class="button">Submit Text</button>
+            
+        </div>
+
+        <div id="div_canvas" class="container text-center mt-2 mb-2">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="save_div" class="container text-center">
+            <a href="#" class="btn btn-success mb-2" id="save_btn" download="my-file1-name.png">Download</a>
         </div>
     </main>
-    <div id="div_canvas" class="container">
-        <canvas id="canvas"></canvas>
-    </div>
-    <div id="save_div" class="container">
-        <a href="#" class="button" id="save_btn" download="my-file1-name.png">Download</a>
-    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
