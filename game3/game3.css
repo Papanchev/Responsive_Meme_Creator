@@ -20,6 +20,10 @@ body {
     background-color: #edebda
 }
 
+#takePhotoDiv {
+    display: none;
+}
+
 #text_div {
     display:none;
 }
@@ -31,3 +35,9 @@ body {
 #savebtn_div {
     display:none;
 }
+
+@media screen and (max-width: 600px) {
+    #takePhotoDiv {
+      display: block;
+    }
+  }
