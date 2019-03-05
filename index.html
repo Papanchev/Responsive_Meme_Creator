@@ -8,40 +8,85 @@
     <title>
         Meme Generator
     </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <!--  <link id="css" rel="stylesheet" type="text/css" href="meme_gen.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link id="css" rel="stylesheet" type="text/css" href="index.css">
     <script src="meme_gen.js" async=""></script>
 </head>
 
 <body>
     <header>
-        <h1>A Creator of Memes</h1>
+        <div class="container pt-2 pb-2">
+            <h1 class="text-center">A Creator of Memes</h1>
+        </div>
     </header>
     <main>
-        <div id="h3div" class="container">
+        <div class="container text-center">
+
+
+            <div id="h4div" class="container pb-3">
+                <h4>Choose one from the following games to play.</h4>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <a href="game1\game1.html" class="btn btn-success btn-block mb-2">Play the Text-Game!</a>
+                        <p>In this game a random image is loaded. Your task is to write text
+                            corresponding
+                            to the loaded image!</p>
+                        <p>Be creative!</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <a href="game2\game2.html" class="btn btn-success btn-block mb-2">Play to Paint!</a>
+                        <p class="align-middle"> In this game a random text is loaded. Your task is to draw something
+                            corresponding to the loaded text!</p>
+                        <p>Use the colors!</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <a href="game3\game3.html" class="btn btn-success btn-block mb-2">Play the Image-Game!</a>
+                        <p>In this game another random text is loaded. Upload or
+                            take a photo relative to the loaded text!</p>
+                        <p>Capture the moment!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <h3> The idea of this site is to create funny drawings,images or photos and add text to them. You can
+                    then
+                    save what you created on your device</h3>
+            </div>
+
+        </div>
+
+
+
+        <!--
+        <div id="h3div">
             <h3> The idea of this site is to create funny drawings,images or photos and add text to them. You can then
                 save what you created on your device</h3>
         </div>
-        <div class="container">
+        <div>
             <div id="h4div">
                 <h4>Choose one from the following games to play.</h4>
             </div>
 
             <div id="links">
 
-                <div class="link_div">
+                <div>
                     <a href="game1\game1.html" class="button">Click me to play the Text-Game!</a>
                     <p>In this game a random image from our database is loaded. Your task is to write text corresponding
                         to the loaded image!</p>
                     <p>Be creative!</p>
                 </div>
-                <div class="link_div">
+                <div>
                     <a href="game2\game2.html" class="button">Choose me if you love to paint!</a>
                     <p> In this game a random text from our database is loaded. Your task is to draw something
                         corresponding to the loaded text!</p>
                     <p>Use the colors!</p>
                 </div>
-                <div class="link_div">
+                <div>
                     <a href="game3\game3.html" class="button">Click me to play the Image-Game!</a>
                     <p>In this game another random text from our database is loaded. Your task this time is to upload or
                         take a photo corresponding to the loaded text!</p>
@@ -51,11 +96,19 @@
             </div>
         </div>
 
+    -->
+
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
