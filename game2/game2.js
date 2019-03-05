@@ -334,7 +334,9 @@ canvas.addEventListener("touchstart", function (e) {
 
     var mouseEvent = new MouseEvent("mousedown", {
         clientX: mouseX,
-        clientY: mouseY
+        clientY: mouseY,
+        pageX: mouseX,
+        pageY: mouseY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
@@ -365,7 +367,9 @@ canvas.addEventListener("touchmove", function (e) {
 
     var mouseEvent = new MouseEvent("mousemove", {
         clientX: mouseX,
-        clientY: mouseY
+        clientY: mouseY,
+        pageX: mouseX,
+        pageY: mouseY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
