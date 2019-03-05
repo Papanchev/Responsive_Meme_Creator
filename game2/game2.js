@@ -135,12 +135,16 @@ document.getElementById('btn').onclick = function () {
 //handle drawing events
 canvas.onmousedown = function (e) {
 
+    /*
+    new solution
     var mouseX = e.layerX;
     var mouseY = e.layerY;
-    /*
+    */
+    
+    // old solution
     var mouseX = e.pageX - this.offsetLeft;
     var mouseY = e.pageY - this.offsetTop;
-    */
+    
     isDrawing = true;
     addClick(mouseX, mouseY);
    // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
@@ -149,8 +153,8 @@ canvas.onmousedown = function (e) {
 
 canvas.onmousemove = function (e) {
     if (isDrawing) {
-        addClick(e.layerX, e.layerY, true);
-       // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        //addClick(e.layerX, e.layerY, true);
+        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
         redraw();
     }
 }
