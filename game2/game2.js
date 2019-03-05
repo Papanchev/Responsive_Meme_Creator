@@ -102,17 +102,17 @@ document.getElementById('btn').onclick = function () {
     newButton.setAttribute('class', 'btn btn-success mb-2 mt-4');
     newButton.innerHTML = "Place Text on Canvas";
 
-    newButton.onclick = function() {
+    newButton.onclick = function () {
         var len = curText.length;
         if (len < 4) {
             len = 4
         }
-        var font = (canvas.width - 50 )/ len;
+        var font = (canvas.width - 50) / len;
         font = Math.ceil(font);
-    
+
         context.font = font + "pt Verdana";
         context.textAlign = "center";
-        context.fillText(curText,(canvas.width / 2),font + 10);
+        context.fillText(curText, (canvas.width / 2), font + 10);
         textPlaced = true;
         textFont = font;
 
@@ -140,27 +140,54 @@ canvas.onmousedown = function (e) {
     var mouseX = e.layerX;
     var mouseY = e.layerY;
     */
-    
+
     // old solution
-    var mouseX = e.pageX - this.offsetLeft;
-    var mouseY = e.pageY - this.offsetTop - window.scrollY;
-    
+    //  var mouseX = e.pageX - this.offsetLeft;
+    //  var mouseY = e.pageY - this.offsetTop - window.pageYOffset;
+
     /*
     if (canvas.offsetParent !== undefined) {
         offsetY += canvas.offsetTop;
     } 
     */
 
+
+    // new fix
+    var element = canvas;
+    var offsetX = 0;
+    var offsetY = 0;
+    if (element.offsetParent !== undefined) {
+        do {
+            offsetX += element.offsetLeft;
+            offsetY += element.offsetTop;
+        } while ((element = element.offsetParent));
+    }
+    var mouseX = e.pageX - offsetX;
+    var mouseY = e.pageY - offsetY;
+
     isDrawing = true;
     addClick(mouseX, mouseY);
-   // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
     redraw();
 }
 
 canvas.onmousemove = function (e) {
     if (isDrawing) {
         //addClick(e.layerX, e.layerY, true);
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop - window.scrollY, true);
+        // new fix
+        var element = canvas;
+        var offsetX = 0;
+        var offsetY = 0;
+        if (element.offsetParent !== undefined) {
+            do {
+                offsetX += element.offsetLeft;
+                offsetY += element.offsetTop;
+            } while ((element = element.offsetParent));
+        }
+        var mouseX = e.pageX - offsetX;
+        var mouseY = e.pageY - offsetY;
+        addClick(mouseX, mouseY, true)
+     //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
         redraw();
     }
 }
@@ -194,7 +221,7 @@ function redraw() {
     if (textPlaced) {
         context.font = textFont + "pt Verdana";
         context.textAlign = "center";
-        context.fillText(curText,(canvas.width / 2),textFont + 10);
+        context.fillText(curText, (canvas.width / 2), textFont + 10);
     }
 
     //   context.strokeStyle = "#df4b26";
@@ -219,7 +246,7 @@ function redraw() {
 
 document.getElementById('red_btn').onchange = function () {
     currentColor = redColor;
-  //  $(this).addClass('active');
+    //  $(this).addClass('active');
 }
 
 document.getElementById('blue_btn').onchange = function () {
@@ -280,15 +307,15 @@ document.getElementById('eraser_btn').onchange = function () {
 canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
- //   var touch = e.targetTouches[0];
- /*
-    var offsetY = 0;
-    if (canvas.offsetParent !== undefined) {
-        offsetY += canvas.offsetTop;
-    } 
-    var newY = touch.clientY - offsetY;
-    */
-  //  offsetY += _stylePaddingTop + _styleBorderTop + _htmlTop;
+    //   var touch = e.targetTouches[0];
+    /*
+       var offsetY = 0;
+       if (canvas.offsetParent !== undefined) {
+           offsetY += canvas.offsetTop;
+       } 
+       var newY = touch.clientY - offsetY;
+       */
+    //  offsetY += _stylePaddingTop + _styleBorderTop + _htmlTop;
     var mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
         clientY: touch.clientY
@@ -305,14 +332,14 @@ canvas.addEventListener("touchend", function (e) {
 canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
- //   var touch = e.targetTouches[0];
- /*
-    var offsetY = 0;
-    if (canvas.offsetParent !== undefined) {
-        offsetY += canvas.offsetTop;
-    } 
-    var newY = touch.clientY - offsetY;
-    */
+    //   var touch = e.targetTouches[0];
+    /*
+       var offsetY = 0;
+       if (canvas.offsetParent !== undefined) {
+           offsetY += canvas.offsetTop;
+       } 
+       var newY = touch.clientY - offsetY;
+       */
     var mouseEvent = new MouseEvent("mousemove", {
         clientX: touch.clientX,
         clientY: touch.clientY
@@ -334,7 +361,7 @@ var button = document.getElementById('btn_download');
 button.addEventListener('click', function (e) {
     var dataURL = canvas.toDataURL('image/png');
     button.href = dataURL;
-    
+
 });
 
 /*
