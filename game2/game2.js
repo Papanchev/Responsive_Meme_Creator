@@ -134,17 +134,23 @@ document.getElementById('btn').onclick = function () {
 
 //handle drawing events
 canvas.onmousedown = function (e) {
+
+    var mouseX = e.layerX;
+    var mouseY = e.layerY;
+    /*
     var mouseX = e.pageX - this.offsetLeft;
     var mouseY = e.pageY - this.offsetTop;
-
+    */
     isDrawing = true;
-    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    addClick(mouseX, mouseY);
+   // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
     redraw();
 }
 
 canvas.onmousemove = function (e) {
     if (isDrawing) {
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        addClick(e.layerX, e.layerY, true);
+       // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
         redraw();
     }
 }
@@ -265,8 +271,10 @@ canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousedown", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
+     //   clientX: touch.clientX,
+        clientX: touch.layerX,
+     //   clientY: touch.clientY
+        clientY: touch.layerY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
@@ -281,8 +289,10 @@ canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
+      //  clientX: touch.clientX,
+      //  clientY: touch.clientY
+        clientX: touch.layerX,
+        clientY: touch.layerY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
