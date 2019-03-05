@@ -271,10 +271,8 @@ canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousedown", {
-     //   clientX: touch.clientX,
-        clientX: touch.layerX,
-     //   clientY: touch.clientY
-        clientY: touch.layerY
+        clientX: touch.clientX,
+        clientY: touch.clientY
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
@@ -289,8 +287,6 @@ canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousemove", {
-      //  clientX: touch.clientX,
-      //  clientY: touch.clientY
         clientX: touch.layerX,
         clientY: touch.layerY
     });
