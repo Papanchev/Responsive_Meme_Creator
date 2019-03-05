@@ -1,38 +1,96 @@
 <!doctype html>
-<html> 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            Game 3
-        </title>
-        <link id="css" rel="stylesheet" type="text/css" href="game3.css">
-        <script src="game3.js" async=""></script>
-    </head>
-    <body>
-        <header>
-            <h1>Game 3</h1>
-        </header>
-        <main>
-            <h3>In this game a text is chosen at random from our database.</h3>
-            <h3>Your task is to take a new or upload an existing photo, that relates to this text. Be creative!</h3>
-            
-            <button id="btn">Generate Text</button>
-        </main>
+<html>
 
-        <div id="text_div">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>
+        Upload your Picture Game
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link id="css" rel="stylesheet" type="text/css" href="game3.css">
+    <script src="game3.js" async=""></script>
+</head>
 
+<body>
+    <header>
+        <div class="container pt-2 pb-2">
+            <h1 class="text-center">Upload your Picture</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container mt-3 mb-3">
+            <h3 class="text-center">In this game a text is chosen at random from our database.</h3>
         </div>
 
-        <div id="get_div">
-            <input type="file" accept="image/*" id="file_input">
+        <div class="container mt-2 mb-3">
+            <h4 class="text-center">Your task is to take a new or upload an existing photo, that relates to this text.
+                Be creative!</h4>
+        </div>
+
+        <div class="container text-center mt-3 mb-3">
+            <button id="btn" class="btn btn-success mb-1">Generate Text</button>
+        </div>
+
+        <div id="text_div" class="container text-center mb-3">
+        </div>
+
+        <!--
+        <div id="get_div" class="container">
+            <input type="file" accept="image/*" id="file_input2">
             <textarea id="target">You can drag an image file here</textarea>
         </div>
-        <div id="placeTextButtonDiv">
-            
+        -->
+        <div id="main_input_div">
+
+
+            <div class="container pl-4 pl-5">
+                <div class="input-group">
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" accept="image/*" id="file_input"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="file_input">Choose file</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container text-center mt-1">
+                <h5> Or just drop your Picture here:</h5>
+            </div>
+
+            <div class="container text-center mt-1">
+                <textarea readonly id="target" class="text-center">Drop Picture</textarea>
+            </div>
         </div>
-        <div id="div_canvas">
+
+
+        <div id="placeTextButtonDiv" class="text-center mt-3 mb-2">
+
+        </div>
+        <div id="div_canvas" class="text-center">
             <canvas id="myCanvas"></canvas>
         </div>
-        <a href="#" class="button" id="btn_download" download="my-file3-name.png">Download</a>
-    </body>
+        
+        <div id="savebtn_div" class="container text-center">
+                <a href="#" class="btn btn-success mb-1" id="btn_download" download="my-file3-name.png">Download</a>
+        </div>
+        
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

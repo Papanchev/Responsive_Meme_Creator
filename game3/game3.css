@@ -1,3 +1,4 @@
+/*
 #save_btn {
     visibility: hidden;
 }
@@ -11,4 +12,22 @@
 #target {
     padding: 10px;
     visibility: hidden;
+}
+*/
+
+body {
+    
+    background-color: #edebda
+}
+
+#text_div {
+    display:none;
+}
+
+#main_input_div{
+    display:none;
+}
+
+#savebtn_div {
+    display:none;
 }

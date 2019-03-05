@@ -41,8 +41,8 @@ document.getElementById('btn').onclick = function () {
     textDiv.appendChild(node2);
 
     // make buttons for uploading images visible
-    document.getElementById("file_input").style.visibility = "visible";
-    document.getElementById("target").style.visibility = "visible";
+    document.getElementById("text_div").style.display = "block";
+    document.getElementById("main_input_div").style.display = "block";
 }
 
 // listener for the file_input button
@@ -79,7 +79,7 @@ function createURLObject(fileList) {
     if (file !== null) {
         drawImageOnCanvas(file);
         // make save button visible
-        document.getElementById("save_btn").style.visibility = "visible";
+        document.getElementById("savebtn_div").style.display = "block";
     }
 }
 
@@ -113,7 +113,7 @@ function drawImageOnCanvas(file) {
         // create new button and set attributes
         var newButton = document.createElement("BUTTON");
         newButton.setAttribute('id', 'placeTextButton');
-        newButton.setAttribute('class', 'button');
+        newButton.setAttribute('class', 'btn btn-success mb-1');
         newButton.innerHTML = "Place Text on Image";
 
         // add button to btnDiv
