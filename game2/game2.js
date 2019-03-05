@@ -143,8 +143,14 @@ canvas.onmousedown = function (e) {
     
     // old solution
     var mouseX = e.pageX - this.offsetLeft;
-    var mouseY = e.pageY - this.offsetTop;
+    var mouseY = e.pageY - this.offsetTop - window.scrollY;
     
+    /*
+    if (canvas.offsetParent !== undefined) {
+        offsetY += canvas.offsetTop;
+    } 
+    */
+
     isDrawing = true;
     addClick(mouseX, mouseY);
    // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
@@ -154,7 +160,7 @@ canvas.onmousedown = function (e) {
 canvas.onmousemove = function (e) {
     if (isDrawing) {
         //addClick(e.layerX, e.layerY, true);
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop - window.scrollY, true);
         redraw();
     }
 }
