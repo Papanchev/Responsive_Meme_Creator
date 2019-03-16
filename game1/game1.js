@@ -88,3 +88,14 @@ button.addEventListener('click', function (e) {
     button.href = dataURL;
 });
 
+
+document.getElementById('link_btn').onclick = function() {
+  var currentUrl = window.location.href;
+  var n = currentUrl.lastIndexOf('/');
+  currentUrl = currentUrl.substring(0,n);
+  n = currentUrl.lastIndexOf('/');
+  currentUrl = currentUrl.substring(0,n);
+
+  currentUrl = currentUrl + "/index.html"
+  window.location.href = currentUrl;
+}
