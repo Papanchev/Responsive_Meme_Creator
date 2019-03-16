@@ -337,7 +337,7 @@ canvas.addEventListener("touchend", function (e) {
 canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
     var touch = e.touches[0];
- //   var touch = e.targetTouches[0];
+    //   var touch = e.targetTouches[0];
 
     // new fix
     var element = canvas;
@@ -350,7 +350,7 @@ canvas.addEventListener("touchmove", function (e) {
         } while ((element = element.offsetParent));
     }
     var mouseX = touch.clientX - offsetX;
-    var mouseY = touch.clientY - offsetY;    
+    var mouseY = touch.clientY - offsetY;
 
     var mouseEvent = new MouseEvent("mousemove", {
         clientX: mouseX,
@@ -375,6 +375,17 @@ button.addEventListener('click', function (e) {
     button.href = dataURL;
 
 });
+
+document.getElementById('link_btn').onclick = function () {
+    var currentUrl = window.location.href;
+    var n = currentUrl.lastIndexOf('/');
+    currentUrl = currentUrl.substring(0, n);
+    n = currentUrl.lastIndexOf('/');
+    currentUrl = currentUrl.substring(0, n);
+
+    currentUrl = currentUrl + "/index.html"
+    window.location.href = currentUrl;
+}
 
 /*
     // learn how to import that  shit
