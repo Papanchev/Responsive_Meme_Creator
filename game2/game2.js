@@ -306,6 +306,7 @@ document.getElementById('eraser_btn').onchange = function () {
 // making the site mobile-friendly
 canvas.addEventListener("touchstart", function (e) {
     e.preventDefault();
+    /*
     var touch = e.touches[0];
 
     // new fix does not work
@@ -326,6 +327,26 @@ canvas.addEventListener("touchstart", function (e) {
         clientY: mouseY
     });
     canvas.dispatchEvent(mouseEvent);
+    */
+
+
+    var element = canvas;
+    var offsetX = 0;
+    var offsetY = 0;
+    if (element.offsetParent !== undefined) {
+        do {
+            offsetX += element.offsetLeft;
+            offsetY += element.offsetTop;
+        } while ((element = element.offsetParent));
+    }
+    var mouseX = e.pageX - offsetX;
+    var mouseY = e.pageY - offsetY;
+
+    isDrawing = true;
+    addClick(mouseX, mouseY);
+    // addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    redraw();
+
 }, false);
 
 canvas.addEventListener("touchend", function (e) {
@@ -336,6 +357,8 @@ canvas.addEventListener("touchend", function (e) {
 
 canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
+
+    /*
     var touch = e.touches[0];
     //   var touch = e.targetTouches[0];
 
@@ -357,6 +380,28 @@ canvas.addEventListener("touchmove", function (e) {
         clientY: mouseY
     });
     canvas.dispatchEvent(mouseEvent);
+    */
+
+
+    if (isDrawing) {
+        //addClick(e.layerX, e.layerY, true);
+        // new fix
+        var element = canvas;
+        var offsetX = 0;
+        var offsetY = 0;
+        if (element.offsetParent !== undefined) {
+            do {
+                offsetX += element.offsetLeft;
+                offsetY += element.offsetTop;
+            } while ((element = element.offsetParent));
+        }
+        var mouseX = e.pageX - offsetX;
+        var mouseY = e.pageY - offsetY;
+        addClick(mouseX, mouseY, true)
+        //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        redraw();
+    }
+
 }, false);
 
 document.body.addEventListener("touchcancel", function (e) {
