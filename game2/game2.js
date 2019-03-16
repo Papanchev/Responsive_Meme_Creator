@@ -339,10 +339,10 @@ canvas.addEventListener("touchstart", function (e) {
             offsetY += element.offsetTop;
         } while ((element = element.offsetParent));
     }
-    //   var mouseX = e.clientX - offsetX;
-    //   var mouseY = e.clientY - offsetY;
-    var mouseX = touch.clientX - offsetX;
-    var mouseY = touch.clientY - offsetY;
+    var mouseX = touch.clientX;
+    var mouseY = touch.clientY;
+    // var mouseX = touch.clientX - offsetX;
+    // var mouseY = touch.clientY - offsetY;
 
     isDrawing = true;
     addClick(mouseX, mouseY);
@@ -399,10 +399,10 @@ canvas.addEventListener("touchmove", function (e) {
                 offsetY += element.offsetTop;
             } while ((element = element.offsetParent));
         }
-        //var mouseX = e.clientX - offsetX;
-        //var mouseY = e.clientY - offsetY;
-        var mouseX = touch.clientX - offsetX;
-        var mouseY = touch.clientY - offsetY;
+        var mouseX = touch.clientX;
+        var mouseY = touch.clientY;
+  //      var mouseX = touch.clientX - offsetX;
+  //      var mouseY = touch.clientY - offsetY;
         addClick(mouseX, mouseY, true)
         //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
         redraw();
