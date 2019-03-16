@@ -340,7 +340,7 @@ canvas.addEventListener("touchstart", function (e) {
         } while ((element = element.offsetParent));
     }
     var mouseX = touch.clientX;
-    var mouseY = touch.clientY;
+    var mouseY = touch.clientY + offsetY;
     // var mouseX = touch.clientX - offsetX;
     // var mouseY = touch.clientY - offsetY;
 
@@ -400,7 +400,7 @@ canvas.addEventListener("touchmove", function (e) {
             } while ((element = element.offsetParent));
         }
         var mouseX = touch.clientX;
-        var mouseY = touch.clientY;
+        var mouseY = touch.clientY + offsetY;
   //      var mouseX = touch.clientX - offsetX;
   //      var mouseY = touch.clientY - offsetY;
         addClick(mouseX, mouseY, true)
