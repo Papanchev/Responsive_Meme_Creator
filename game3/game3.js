@@ -88,10 +88,15 @@ function createURLObject(fileList) {
 function drawImageOnCanvas(file) {
     // new image => no text placed
     textPlaced = false;
+    var toRotate = false;
 
     // create an image element
     var image = document.createElement("IMG");
     image.src = URL.createObjectURL(file);
+
+    if (image.width < image.height) {
+        toRotate = true;
+    }
 
     // resize image
     image.height = 255;
@@ -103,9 +108,41 @@ function drawImageOnCanvas(file) {
 
     // on load -> draw it
     image.onload = function (e) {
-        canvas.width = image.width;
-        canvas.height = image.height;
-        context.drawImage(image, 0, 0, image.width, image.height);
+        if (toRotate) {
+            const width = 255; // after rotation
+            const height = 255; // after rotation
+            const scale = width / image.height; // how much to scale the image to fit
+            
+            canvas.width = width;
+            canvas.height = height;
+            context.setTransform(
+                0, scale, // x axis down the screen
+                -scale, 0, // y axis across the screen from right to left
+                width,    // x origin is on the right side of the canvas 
+                0         // y origin is at the top
+            );
+            context.drawImage(image, 0, 0, image.width, image.height);
+         //   context.drawImage(image, 0, 0);
+            context.setTransform(1, 0, 0, 1, 0, 0);
+        } else {
+            // no need to rotate image
+            /*
+            canvas.width = image.width;
+            canvas.height = image.height;
+            context.drawImage(image, 0, 0, image.width, image.height);
+            */
+
+
+            const width = 255; // after rotation
+            const height = 255; // after rotation
+            const scale = width / image.height; // how much to scale the image to fit
+            
+            canvas.width = width;
+            canvas.height = height;
+
+            context.drawImage(image, 0, 0, image.width, image.height);
+          //  context.drawImage(image, 0, 0);
+        }
     }
 
     // create button for placing text on image, iff not created so far
