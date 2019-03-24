@@ -113,7 +113,9 @@ function drawImageOnCanvas(file) {
         }
         toRotate = false;
         if (window.matchMedia("(max-width: 1024px)").matches) {
-            toRotate = true;
+            if (image.width < image.height) {
+                toRotate = true;
+            }
         }
         image.height = 255;
         image.width = 255;
@@ -202,7 +204,7 @@ function drawImageOnCanvas(file) {
 
             // draw text on canvas
             context.fillStyle = "red";
-            context.font = font + "pt Verdana";
+            context.font = font + "pt Impact";
             context.textAlign = "center";
             context.fillText(curText, (canvas.width / 2), font + 10);
             textPlaced = true;
