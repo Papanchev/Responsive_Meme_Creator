@@ -206,7 +206,8 @@ function drawImageOnCanvas(file) {
             context.fillStyle = "red";
             context.font = font + "pt Impact";
             context.textAlign = "center";
-            context.fillText(curText, (canvas.width / 2), font + 10);
+            var curText2 = curText.toUpperCase();
+            context.fillText(curText2, (canvas.width / 2), font + 10);
             textPlaced = true;
             curPlacedText = curText;
         } // end of button on click
