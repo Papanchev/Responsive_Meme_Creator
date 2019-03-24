@@ -94,13 +94,12 @@ function drawImageOnCanvas(file) {
     var image = document.createElement("IMG");
     image.src = URL.createObjectURL(file);
 
-    if (image.width < image.height) {
-        toRotate = true;
-    }
+    
+    
 
     // resize image
-    image.height = 255;
-    image.width = 255;
+  //  image.height = 255;
+  //  image.width = 255;
 
     // get canvas and context
     var canvas = document.getElementById("myCanvas");
@@ -108,6 +107,14 @@ function drawImageOnCanvas(file) {
 
     // on load -> draw it
     image.onload = function (e) {
+        toRotate = false;
+        if (image.width < image.height) {
+            toRotate = true;
+        }
+        toRotate = false;
+        image.height = 255;
+        image.width = 255;
+
         if (toRotate) {
             const width = 255; // after rotation
             const height = 255; // after rotation
