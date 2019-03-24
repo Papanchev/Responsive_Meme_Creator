@@ -289,6 +289,13 @@ document.getElementById('clear_btn').onclick = function () {
     dragArr = new Array();
     colorsArr = new Array();
     sizesArr = new Array();
+
+    // put text back on canvas
+    if (textPlaced) {
+        context.font = textFont + "pt Verdana";
+        context.textAlign = "center";
+        context.fillText(curText, (canvas.width / 2), textFont + 10);
+    }
 }
 
 document.getElementById('marker_btn').onchange = function () {
