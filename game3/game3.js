@@ -112,6 +112,9 @@ function drawImageOnCanvas(file) {
             toRotate = true;
         }
         toRotate = false;
+        if (window.matchMedia("(max-width: 1024px)").matches) {
+            toRotate = true;
+        }
         image.height = 255;
         image.width = 255;
 
