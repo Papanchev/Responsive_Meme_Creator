@@ -127,12 +127,14 @@ function drawImageOnCanvas(file) {
             
             canvas.width = width;
             canvas.height = height;
+            /*
             context.setTransform(
                 0, scale, // x axis down the screen
                 -scale, 0, // y axis across the screen from right to left
                 width,    // x origin is on the right side of the canvas 
                 0         // y origin is at the top
             );
+            */
             context.drawImage(image, 0, 0, image.width, image.height);
          //   context.drawImage(image, 0, 0);
             context.setTransform(1, 0, 0, 1, 0, 0);
